@@ -1,7 +1,6 @@
 package jp.ac.uryukyu.ie.e225749;
 
 class PlayerActions implements Action {
-    //魔法は個別の名前を持つ
     private String name;
     private int str; //攻撃力
     private int consumption; //消費MP

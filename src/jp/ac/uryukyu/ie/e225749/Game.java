@@ -6,10 +6,10 @@ public class Game {
    ArrayList<Character> order = new ArrayList<>();
 
    Game() {
-       var you = new Player("あなた", 100,20,5);
+       var you = new Player("あなた", 100,20,15);
        you.addAction(new Rest());
           //インスタンスのパラメータを変えることで攻撃魔法のバリエーションを作る
-        you.addAction(new PlayerActions("強く引っ張る", 20, 10));
+        you.addAction(new PlayerActions("強く引っ張る", 30, 10));
         you.addAction(new Lose());
 
 

@@ -19,7 +19,7 @@ class EnemyActions implements Action {
     @Override
     public void execute(Character executer, Character target) {
         System.out.println(executer.getName() + "は" + name);
-        target.recover(str); 
+        target.kyoriRecover(str); 
         executer.comsumeSt(consumption);
         System.out.println(str+"メートル離れた!!");
     }

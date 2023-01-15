@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public abstract class Character {
     protected String name;
-    private int hp;
+    protected int hp;
     protected int stamina;
     private int str;
     String getName(){return name;}
@@ -35,7 +35,10 @@ public abstract class Character {
         stamina -= comsumemp;
      }
      void recover(int recoverd){
-        hp += recoverd;
+        stamina += recoverd;
+     }
+     void kyoriRecover(int kyorirecover){
+        hp += kyorirecover;
      }
 
     //影響を与える可能性のあるオブジェクトの参照を引数として受け取る
