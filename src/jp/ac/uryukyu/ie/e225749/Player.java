@@ -5,7 +5,7 @@ public class Player extends Character {
     Player(String name, int kyori, int stamina, int str) {
         super(name, kyori, stamina, str);
     }
- 
+
     @Override
     void act(ArrayList<Character> targets) {
         var command_selector = new Command();
@@ -15,10 +15,13 @@ public class Player extends Character {
             command_selector.addCommand(action.name());
         }
        //ユーザの選択を待つ
+       if(stamina>0){
         var command_number = command_selector.waitForUsersCommand("コマンド？");
-
-
         actions.get(command_number).execute(this, targets.get(0));
+       }else{
+        actions.get(2).execute(this, targets.get(0));
+       }
+
     }
  
 }

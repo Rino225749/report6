@@ -39,4 +39,3 @@ Game class
 
 Main class
 ゲームを開始し、終了条件を設定する。
-
