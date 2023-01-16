@@ -10,12 +10,17 @@ public class Player extends Character {
     void act(ArrayList<Character> targets) {
         var command_selector = new Command();
         if(hp<=0){
+            hp = 0;
             System.out.println("魚を捕まえました！");
             System.out.println("ゲームクリア");
             System.exit(0);
         }
-
-        
+        if(hp>=500){
+            System.out.println(name + "は魚を逃した。");
+            System.out.println("ゲームオーバー");
+            System.exit(0);
+        }
+ 
        //選択肢を用意する
         for(var action: actions) {
             command_selector.addCommand(action.name());
@@ -27,6 +32,9 @@ public class Player extends Character {
        }else{
         actions.get(2).execute(this, targets.get(0));
        }
+       if(stamina >= 100){
+        stamina = 100;
+    }
 
     }
  

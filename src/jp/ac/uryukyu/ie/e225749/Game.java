@@ -7,18 +7,17 @@ public class Game {
    ArrayList<Character> enemy = new ArrayList<>();
 
    Game() {
-       var you = new Player("あなた", 100,20,15);
+        var randKyori = new Random();
+        int kyoriIndex = randKyori.nextInt(100)+100;
+       var you = new Player("あなた", kyoriIndex,100,15);
        you.addAction(new Rest());
-          //インスタンスのパラメータを変えることで攻撃魔法のバリエーションを作る
-        you.addAction(new PlayerActions("強く引っ張る", 30, 10));
+        you.addAction(new PlayerActions("引っ張る", 30, 10));
+        you.addAction(new PlayerActions("強く引っ張る",50,20));
         you.addAction(new Lose());
 
-        var dan = new Enemy("お魚さん", 40,40,10);
-        var dan2 = new Enemy("でかいお魚さん", 60, 50, 20);
-        var dan3 = new Enemy("巨大なお魚さん", 100,80,30);
-       enemy.add(dan);
-       enemy.add(dan2);
-       enemy.add(dan3);
+       enemy.add(new Enemy("お魚さん", 40,40,10));
+       enemy.add(new Enemy("でかいお魚さん", 60, 50, 20));
+       enemy.add(new Enemy("巨大なお魚さん", 100,80,30));
        var rand = new Random();
        int index = rand.nextInt(enemy.size());
        var selected_enemy = enemy.get(index);

@@ -5,7 +5,7 @@ public abstract class Character {
     protected String name;
     protected int hp;
     protected int stamina;
-    private int str;
+    protected int str;
     String getName(){return name;}
     int getHp(){return hp;}
     int getSt(){return stamina;}
@@ -40,7 +40,6 @@ public abstract class Character {
      void kyoriRecover(int kyorirecover){
         hp += kyorirecover;
      }
-
     //影響を与える可能性のあるオブジェクトの参照を引数として受け取る
-    abstract void act(ArrayList<Character> targets); //サブクラスで定義する
+    abstract void act(ArrayList<Character> targets); //サブクラスでターゲットを定義する
 }
