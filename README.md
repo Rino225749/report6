@@ -3,39 +3,43 @@
 名称：魚釣りゲーム
 
 ルール
-１：プレイヤーは魚と駆け引きをして、釣り上げたら成功、逃げられると失敗。
+１：プレイヤーは魚と駆け引きをして、釣り上げたら（距離を０にする）ゲームクリア、逃げられると失敗。
 ２：プレイヤーはスタミナがなくなると休憩しかできなくなる。
 ３：魚はスタミナがなくなると１ターン疲労で動けない。
+４：距離が０になると同時にスタミナも０になった場合、ゲームクリアとする。
 
 
 各クラスの説明
 
-Action class
+Action class：
 Rest,EnemyActions,PlayerActions classの継承もと（ポリモーフィズム）。Actionを実行するキャラクターと、影響を受けるキャラクターを決める。
 
-EnemyActions class
+EnemyActions class：
 魚の行動の選択肢の設計。
 
-PlayerActions class
+PlayerActions class：
 プレイヤーの行動の選択肢の設計。
 
-Command class
+Command class：
 プレイヤーの行動の選択肢をプロンプトに表示し、決定させる。
 
-Character class
+Character class：
 プレイヤーと魚のステータスと、挙動を決める。
 
-Enemy class
+Enemy class：
 魚のとる挙動を決める。また、魚の取れる行動を追加する。
 
-Player class
+Player class：
 プレイヤーのとる挙動を決める。
 
-Rest class
-プレイヤーの行動の一つ、休憩を追加する。
+Rest class：
+プレイヤーの行動の一つ、竿を緩めるを追加する。
 
-Game class
+Lose class：
+プレイヤーの行動の一つ、諦める（ゲームオーバー）を追加する。スタミナが０になると強制的にこの行動が選択される。
+
+Game class：
 ゲームの1ターンごとの進み方を決める。また、プレイヤーと魚を追加し、プレイヤーの行動の選択肢を追加する。
 
-Main class
+Main class：
 ゲームを開始し、終了条件を設定する。
