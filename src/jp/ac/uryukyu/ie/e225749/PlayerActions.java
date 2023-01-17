@@ -3,12 +3,12 @@ package jp.ac.uryukyu.ie.e225749;
 class PlayerActions implements Action {
     private String name;
     private int str; //攻撃力
-    private int consumption; //消費MP
+    private int bite; //消費MP
  
-    PlayerActions(String name, int str, int consumption) {
+    PlayerActions(String name, int str, int bite) {
         this.name = name;
         this.str = str;
-        this.consumption = consumption;
+        this.bite = bite;
     }
  
     @Override
@@ -17,10 +17,12 @@ class PlayerActions implements Action {
     }
  
     @Override
+    //プレイヤーの竿を引く系のコマンドの挙動
     public void execute(Character executer, Character target) {
-        System.out.println(executer.getName() + "は" + name);
+        System.out.println(executer.getName() + "は魚を" + name);
         target.pull(str); 
-        executer.comsumeSt(consumption);
-        System.out.println(str+"メートル近づいた!!");
+        executer.comsumeSt(bite);
+        System.out.println(str + "メートル近づいた!!");
+        System.out.println(bite + "食いつきが緩んだ");
     }
  }

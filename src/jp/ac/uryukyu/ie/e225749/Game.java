@@ -7,17 +7,20 @@ public class Game {
    ArrayList<Character> enemy = new ArrayList<>();
 
    Game() {
+        //距離の初期値を１００〜１９９の間でランダムで決定
         var randKyori = new Random();
         int kyoriIndex = randKyori.nextInt(100)+100;
-       var you = new Player("あなた", kyoriIndex,100,15);
+        //プレイヤーの情報
+       var you = new Player("あなた", kyoriIndex,100,15,0);
        you.addAction(new Rest());
         you.addAction(new PlayerActions("引っ張る", 30, 10));
         you.addAction(new PlayerActions("強く引っ張る",50,20));
         you.addAction(new Lose());
-
-       enemy.add(new Enemy("お魚さん", 40,40,10));
-       enemy.add(new Enemy("でかいお魚さん", 60, 50, 20));
-       enemy.add(new Enemy("巨大なお魚さん", 100,80,30));
+        //魚の情報
+       enemy.add(new Enemy("お魚さん", 40,40,10,0));
+       enemy.add(new Enemy("でかいお魚さん", 60, 50, 20,0));
+       enemy.add(new Enemy("巨大なお魚さん", 100,80,30,0));
+       //釣り針にかかる魚をランダムで決定
        var rand = new Random();
        int index = rand.nextInt(enemy.size());
        var selected_enemy = enemy.get(index);
